@@ -1,0 +1,212 @@
+<html>
+
+<head>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/themes/light_blue.min.js"></script>
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+
+    <script>
+
+        anychart.onDocumentReady(function () {
+            // set chart theme
+            anychart.theme('lightBlue');
+            // create data set on our data
+            var dataSet = anychart.data.set([
+
+                ['1', 12814, 3054, 4376, 4229],
+                ['2', 13012, 5067, 3987, 3932],
+                ['3', 11624, 7004, 3574, 5221],
+                ['4', 8814, 9054, 4376, 9256],
+                ['5', 12998, 12043, 4572, 3308],
+                ['6', 12321, 15067, 3417, 5432],
+                ['7', 10342, 10119, 5231, 13701],
+                ['8', 22998, 12043, 4572, 4008],
+                ['9', 11261, 10419, 6134, 18712],
+                ['10', 12814, 3054, 4376, 4229],
+                ['11', 13012, 5067, 3987, 3932],
+                ['12', 11624, 7004, 3574, 5221],
+                ['13', 8814, 9054, 4376, 9256],
+                ['14', 12998, 12043, 4572, 3308],
+                ['15', 12321, 15067, 3417, 5432],
+                ['16', 10342, 10119, 5231, 13701],
+                ['17', 22998, 12043, 4572, 4008],
+                ['18', 11261, 10419, 6134, 18712],
+                ['19', 12814, 3054, 4376, 4229],
+                ['21', 13012, 5067, 3987, 3932],
+                ['22', 11624, 7004, 3574, 5221],
+                ['23', 8814, 9054, 4376, 9256],
+                ['24', 12998, 12043, 4572, 3308],
+                ['25', 12321, 15067, 3417, 5432],
+                ['26', 10342, 10119, 5231, 13701],
+                ['27', 22998, 12043, 4572, 4008],
+                ['28', 11261, 10419, 6134, 18712],
+                ['29', 12814, 3054, 4376, 4229],
+                ['30', 13012, 5067, 3987, 3932],
+                ['31', 11624, 7004, 3574, 5221],
+                ['32', 8814, 9054, 4376, 9256],
+                ['33', 12998, 12043, 4572, 3308],
+                ['34', 12321, 15067, 3417, 5432],
+                ['35', 10342, 10119, 5231, 13701],
+                ['36', 22998, 12043, 4572, 4008],
+                ['37', 11261, 10419, 6134, 18712],
+                ['38', 11261, 10419, 6134, 18712],
+                ['39', 11261, 10419, 6134, 18712],
+                ['40', 11261, 10419, 6134, 18712],
+                ['41', 11261, 10419, 6134, 18712],
+                ['42', 11261, 10419, 6134, 18712],
+                ['43', 11261, 10419, 6134, 18712],
+                ['44', 11261, 10419, 6134, 18712],
+                ['45', 11261, 10419, 6134, 18712],
+                ['46', 11261, 10419, 6134, 18712],
+                ['47', 11261, 10419, 6134, 18712],
+                ['48', 11261, 10419, 6134, 18712],
+                ['49', 11261, 10419, 6134, 18712],
+                ['50', 11261, 10419, 6134, 18712],
+                ['51', 11261, 10419, 6134, 18712],
+                ['52', 11261, 10419, 6134, 18712],
+                ['53', 11261, 10419, 6134, 18712],
+                ['54', 11261, 10419, 6134, 18712],
+                ['55', 11261, 10419, 6134, 18712],
+                ['56', 11261, 10419, 6134, 18712],
+                ['57', 11261, 10419, 6134, 18712],
+                ['58', 11261, 10419, 6134, 18712],
+                ['59', 11261, 10419, 6134, 18712],
+                ['60', 11261, 10419, 6134, 18712],
+                ['61', 11261, 10419, 6134, 18712],
+                ['62', 11261, 10419, 6134, 18712],
+                ['63', 11261, 10419, 6134, 18712],
+                ['64', 11261, 10419, 6134, 18712],
+                ['65', 11261, 10419, 6134, 18712],
+                ['66', 11261, 10419, 6134, 18712],
+                ['67', 11261, 10419, 6134, 18712],
+                ['68', 11261, 10419, 6134, 18712],
+                ['69', 11261, 10419, 6134, 18712],
+                ['70', 11261, 10419, 6134, 18712],
+                ['71', 11261, 10419, 6134, 18712],
+                ['72', 11261, 10419, 6134, 18712],
+                ['73', 11261, 10419, 6134, 18712],
+                ['74', 11261, 10419, 6134, 18712],
+                ['75', 11261, 10419, 6134, 18712],
+                ['76', 11261, 10419, 6134, 18712],
+                ['77', 11261, 10419, 6134, 18712],
+                ['78', 11261, 10419, 6134, 18712],
+                ['79', 11261, 10419, 6134, 18712],
+                ['81', 11261, 10419, 6134, 18712],
+                ['82', 11261, 10419, 6134, 18712],
+                ['83', 11261, 10419, 6134, 18712],
+                ['84', 11261, 10419, 6134, 18712],
+                ['85', 11261, 10419, 6134, 18712],
+                ['86', 11261, 10419, 6134, 18712],
+                ['87', 11261, 10419, 6134, 18712],
+                ['88', 11261, 10419, 6134, 18712],
+                ['89', 11261, 10419, 6134, 18712],
+                ['90', 11261, 10419, 6134, 18712],
+                ['91', 11261, 10419, 6134, 18712],
+                ['92', 11261, 10419, 6134, 18712],
+                ['93', 11261, 10419, 6134, 18712],
+                ['94', 11261, 10419, 6134, 18712],
+                ['95', 11261, 10419, 6134, 18712],
+                ['96', 11261, 10419, 6134, 18712],
+                ['97', 11261, 10419, 6134, 18712],
+                ['98', 11261, 10419, 6134, 18712],
+                ['99', 11261, 10419, 6134, 18712],
+                ['100', 11261, 10419, 6134, 18712]
+
+
+            ]);
+
+            // map data for the first series, take x from the zero column and value from the first column of data set
+            var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
+
+            // map data for the second series, take x from the zero column and value from the second column of data set
+            var secondSeriesData = dataSet.mapAs({ x: 0, value: 2 });
+
+            // map data for the second series, take x from the zero column and value from the third column of data set
+            var thirdSeriesData = dataSet.mapAs({ x: 0, value: 3 });
+
+            // map data for the fourth series, take x from the zero column and value from the fourth column of data set
+            var fourthSeriesData = dataSet.mapAs({ x: 0, value: 4 });
+
+            // create bar chart
+            var chart = anychart.column();
+
+            // turn on chart animation
+            chart.animation(true);
+
+            // force chart to stack values by Y scale.
+            chart.yScale().stackMode('percent');
+
+            // set chart title text settings
+            chart.title('Regional ratio of cosmetic products sales');
+
+            // set yAxis labels formatting, force it to add % to values
+            chart.yAxis(0).labels().format('{%Value}%');
+
+            // helper function to setup label settings for all series
+            var setupSeries = function (series, name1, name2, name3) {
+                series.name(name1, name2, name3).stroke(['4 red 3', '4 green 5', '8 yellow 9']);
+                series.hovered().stroke('5 red 1');
+            };
+
+            // temp variable to store series instance
+            var series;
+
+            // create first series with mapped data
+            series = chart.column(firstSeriesData);
+            setupSeries(series, 'Productive');
+
+            // create second series with mapped data
+            series = chart.column(secondSeriesData);
+            setupSeries(series, 'Unproductive');
+
+            // create third series with mapped data
+            series = chart.column(thirdSeriesData);
+            setupSeries(series, 'Neutral');
+
+            // create fourth series with mapped data
+            //   series = chart.column(fourthSeriesData);
+            //   setupSeries(series, 'Nevada');
+
+            chart.interactivity().hoverMode('by-x');
+            chart.tooltip().titleFormat('{%X}').displayMode('union');
+
+            // turn on legend
+            chart.legend().enabled(true).fontSize(13);
+
+            // set container id for the chart
+            chart.container('container');
+
+            // initiate chart drawing
+            chart.draw();
+        });
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+

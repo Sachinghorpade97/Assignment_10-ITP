@@ -1,0 +1,2786 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+
+
+    <!-- font awesome -->
+    <!--   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title> 1. MyView</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/themes/light_blue.min.js"></script>
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:400|Roboto+Condensed:400|Fjalla+One:400">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <style>
+        @media only screen and (max-width: 1550px) and (min-width: 160px) {
+            .chart11 {
+                margin-bottom: 18% !important;
+
+            }
+        }
+
+        .line {
+
+            /* Increase this as per requirement */
+            padding-bottom: -13px;
+            border-bottom-style: solid;
+            border-bottom-width: 3px;
+            width: fit-content;
+            color: rgb(151, 151, 151);
+        }
+
+        .line1 {
+
+            /* Increase this as per requirement */
+            padding-bottom: -13px;
+            border-bottom-style: solid;
+            border-bottom-width: 3px;
+            width: fit-content;
+            color: #0095DA;
+
+
+
+        }
+
+        .tm:hover {
+            color: #0095DA;
+            cursor: pointer;
+        }
+
+        .line:hover {
+            color: #0095DA;
+            cursor: pointer;
+        }
+
+
+        /*  */
+        #container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* body{
+            background-color: #f0efef;
+        } */
+
+        /* si -------------------------*/
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+
+            background-color: white;
+            /* position: fixed; */
+            height: 100%;
+            overflow: auto;
+
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .sidebar a.active {
+            background-color: #0095DA;
+            color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #6FCEFB;
+            color: white;
+        }
+
+
+
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: left;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .sidebar a {
+                text-align: center;
+                float: none;
+            }
+        }
+
+
+        /* ------------------------------------- */
+
+
+        .file:hover {
+            background-color: #bb4d53;
+            color: white;
+        }
+
+        .tree:hover {
+            background-color: #E5EAF3;
+        }
+
+
+        /* tool */
+
+
+        /*  */
+        @media only screen and (max-width: 1373px) and (min-width: 797px) {
+            .tim {
+                margin-left: 20% !important;
+
+            }
+        }
+
+        @media only screen and (max-width: 391px) and (min-width: 243px) {
+            .tim {
+                margin-left: 20% !important;
+
+            }
+        }
+
+        @media only screen and (max-width: 1210px) and (min-width: 768px) {
+            .mpl {
+                margin-left: 35% !important;
+
+            }
+        }
+    </style>
+
+
+
+    <div class="container-fluid">
+        <!-- -->
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: white;">
+            <a class="navbar-brand mt-3 mb-3" href="#"><img class="img-fluid ml-3" src="itp.png" alt=""
+                    style="width: 75%;"></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link ml-lg-5" href="#" style="color: #0095DA; font-size: large;"> Dashbord </a>
+                    </li>
+                </ul>
+
+                <form class="form-inline my-2 my-lg-0">
+
+                    <i class="bi bi-search mr-5 text-muted" style="font-size: 21px;"></i>
+                    <img class="mr-5 img-fluid" src="bell.png" alt="">
+                    <i class="bi bi-download mr-5 text-muted" style="font-size: 21px;"></i>
+                    <i class="bi bi-gear mr-5 text-muted" style="font-size: 21px;"></i>
+                    <img class="w-16 img-fluid" src="pronav.png" alt="">
+                    <button class="btn text-muted" type="submit"><i class="bi bi-chevron-down"></i> John Deo</button>
+                </form>
+            </div>
+        </nav>
+        <!--  -->
+
+        <div class="col-md-12">
+            <div class="row ">
+
+                <div class="col-md-2">
+
+                    <div class="sidebar ">
+                        <a href="#about"><i class="bi bi-chevron-double-left "
+                                style="font-size: 22px; color: #0095DA;"></i></a>
+                        <a class="active" href="#home"><i class="bi bi-speedometer2" style="font-size: 22px;">
+                            </i>&nbsp; Dashboard</a>
+                        <a href="#news"><i class="fa fa-handshake-o text-muted" aria-hidden="true"
+                                style="font-size: 22px;"></i>&nbsp; Clients</a>
+                        <a href="#contact"><i class="bi bi-folder text-muted" style="font-size: 22px;"></i>&nbsp;
+                            Projects</a>
+                        <a href="#about"><i class="bi bi-file-earmark-medical text-muted"
+                                style="font-size: 22px;"></i>&nbsp; Invoice</a>
+                        <a href="#about"><i class="bi bi-alarm text-muted" style="font-size: 22px;"></i>&nbsp; Time
+                            Tracking</a>
+                        <a href="#about"><i class="bi bi-file-earmark-text "
+                                style="font-size: 22px; color: white;"></i>&nbsp; Activities</a>
+                        <a href="#about"><i class="bi bi-calculator text-muted" style="font-size: 22px;"></i>
+                            &nbsp;Estimates</a>
+                        <a href="#about"><i class="bi bi-clipboard-minus text-muted" style="font-size: 22px;"></i>
+                            &nbsp;Tasks</a>
+                        <a href="#about"><i class="bi bi-file-earmark-richtext text-muted"
+                                style="font-size: 22px;"></i>&nbsp; Timesheet</a>
+                        <a href="#about"> <i class="bi bi-people text-muted" style="font-size: 22px;"></i>&nbsp;
+                            People</a>
+                        <a href="#about"><i class="bi bi-file-earmark-text text-muted"
+                                style="font-size: 22px;"></i>&nbsp; Reports</a>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-10" style="background-color: #f0efef;">
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="">
+                                <h3><b> Welcome Joe! </b></h3>
+                                </p>
+                                <p class="">
+                                <h4> THURSDAY NOVEMBER 12,2020 | <img src="PIMD.png" alt=""> CANTA CLARA</h4>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="card" style="background-color: #f0efef; border: none;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <ul class="" style="list-style: none;">
+                                        <li class=" line1 ">
+                                            <a class="nav-link " style="color: #0095DA;">
+                                                <H5><b> MY VIEW</b></H5>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-md-3">
+
+                                    <ul class="" style="list-style: none;">
+                                        <li class=" line">
+                                            <a href="Team Members.html" class="nav-link tm">
+                                                <H5><b>TEAM MEMBERS</b></H5>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="col-md-7">
+                                    <span class="float-right">
+
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-lg text-muted tree"
+                                                data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom"
+                                                title="Select Date" data-display="static" aria-expanded="false">
+                                                Today:Oct 14
+                                                <span class="dot mt-1"
+                                                    style="height: 26px; width: 27px; background-color: #00A0E3;  display: inline-block;"><i
+                                                        class="bi bi-chevron-down" style="color: white;"></i></span>
+                                            </button>
+
+
+                                            <div class="dropdown-menu dropdown-menu-lg-right"
+                                                style="border-color: #41AAE1; width: 370%;">
+
+                                                <div class="card" style="width: 100%; border: none;">
+                                                    <div class="card-body m-0 p-0">
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="card m-0 p-0 mt-n2"
+                                                                    style="width: 100%; height: 103%;">
+                                                                    <div class="card-body m-0 p-0">
+
+                                                                        <div class="list-group">
+                                                                            <a href="#"
+                                                                                class="list-group-item list-group-item-action "
+                                                                                aria-current="true"
+                                                                                style="color: #00A0E3; background-color: #E4E9EF;">
+                                                                                Today
+                                                                            </a>
+                                                                            <a href="#"
+                                                                                class="list-group-item list-group-item-action">
+                                                                                Yesterday </a>
+                                                                            <a href="#"
+                                                                                class="list-group-item list-group-item-action">
+                                                                                Last 7 Days </a>
+                                                                            <a href="#"
+                                                                                class="list-group-item list-group-item-action">
+                                                                                Last 30 Days</a>
+                                                                            <a
+                                                                                class="list-group-item list-group-item-action disabled">
+                                                                                This Month</a>
+                                                                            <a
+                                                                                class="list-group-item list-group-item-action disabled">
+                                                                                Last Month</a>
+                                                                            <a
+                                                                                class="list-group-item list-group-item-action disabled">
+                                                                                Custom Range</a>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                <div class="card m-0 p-0 ml-0"
+                                                                    style="width: 100%; border: none;">
+                                                                    <div class="card-body m-0 p-0">
+                                                                        <form>
+                                                                            <div class="form-row mr-2">
+                                                                                <div
+                                                                                    class="form-group col-md-6 col-sm-6 col-6">
+                                                                                    <label for="inputEmail4"
+                                                                                        class="text-muted">Form</label>
+                                                                                    <input type="email44"
+                                                                                        class="form-control"
+                                                                                        id="inputEmail44"
+                                                                                        placeholder="14 May 2020">
+                                                                                </div>
+                                                                                <div
+                                                                                    class="form-group col-md-6 col-sm-6 col-6">
+                                                                                    <label for="inputPassword4"
+                                                                                        class="text-muted">To</label>
+                                                                                    <input type="passwordj"
+                                                                                        class="form-control"
+                                                                                        id="inputPassword4j"
+                                                                                        placeholder="7 June 2020">
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="card m-0 p-0"
+                                                                    style="width: 100%; border: none;">
+
+                                                                    <div class="card-body m-0 p-0">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="wrapper">
+                                                                                    <div id="calendar"></div>
+                                                                                    <div id="calendar_data"></div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6">
+                                                                                <div class="wrapper">
+                                                                                    <div id="calendar1"></div>
+                                                                                    <div id="calendar_data1"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <span
+                                                                                    class="float-right mr-5 mt-4 mb-4">
+                                                                                    <button type="button"
+                                                                                        class="btn btn-lg px-lg-5"
+                                                                                        style="border-color: #D62027;
+                                                                                    color: #D62027;">Cancel</button>
+
+                                                                                    <button type="button"
+                                                                                        class="btn btn-lg px-lg-5"
+                                                                                        style="background-color: #0095DA; color: white;">Save</button>
+                                                                                </span>
+                                                                            </div>
+
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <button type="button" class="btn btn-lg file" data-toggle="tooltip"
+                                            data-placement="bottom" title="Export" style="border-color: #CA071C;"><img
+                                                src="mpl.png" alt=""></button>
+                                    </span>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+
+                    <!--  -->
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body">
+
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class=" text-muted"> THURSDAY<br>Nov 12,2020 </p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p class=" text-muted"> Arrival Time<br> 09:30:56 </p>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class=""><span>
+                                                        <h3><b style="color: #0095DA;">08 : 18 : 25</b></h3>
+                                                    </span>
+                                                    <h7 class="text-muted"> Total Work Time</h7>
+                                                </p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p class=" text-muted  mt-3"> Left Time &nbsp;&nbsp;<br>
+                                                    00:00:00 </p>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+
+                                    <div class="row mt-5">
+                                        <div class="col-6">
+                                            <button type="button" class="btn px-4"
+                                                style="color: #0095DA; background-color: #D1F4F2;">Check Out</button>
+                                        </div>
+                                        <div class="col-6">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-9">
+
+                            <div class="card h-100" style="width: 100%;">
+                                <div class="card-body chart11">
+                                    <!-- <h4 class="card-title"><b>Productivity Bar</b></h4> -->
+
+                                    <!-- <label>Productivity Bar</label> -->
+                                    <div id="container"></div>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--  -->
+
+                    <script>
+
+                        anychart.onDocumentReady(function () {
+                            // set chart theme
+                            anychart.theme('#ED343A');
+                            // create data set on our data
+                            var dataSet = anychart.data.set([
+
+                                ['1', 12814, 3054, 4376, 4229],
+                                ['2', 13012, 5067, 3987, 3932],
+                                ['3', 11624, 7004, 3574, 5221],
+                                ['4', 8814, 9054, 4376, 9256],
+                                ['5', 12998, 12043, 4572, 3308],
+                                ['6', 12321, 15067, 3417, 5432],
+                                ['7', 10342, 10119, 5231, 13701],
+                                ['8', 22998, 12043, 4572, 4008],
+                                ['9', 11261, 10419, 6134, 18712],
+                                ['10', 12814, 3054, 4376, 4229],
+                                ['11', 13012, 5067, 3987, 3932],
+                                ['12', 11624, 7004, 3574, 5221],
+                                ['13', 8814, 9054, 4376, 9256],
+                                ['14', 12998, 12043, 4572, 3308],
+                                ['15', 12321, 15067, 3417, 5432],
+                                ['16', 10342, 10119, 5231, 13701],
+                                ['17', 22998, 12043, 4572, 4008],
+                                ['18', 11261, 10419, 6134, 18712],
+                                ['19', 12814, 3054, 4376, 4229],
+                                ['21', 13012, 5067, 3987, 3932],
+                                ['22', 11624, 7004, 3574, 5221],
+                                ['23', 8814, 9054, 4376, 9256],
+                                ['24', 12998, 12043, 4572, 3308],
+                                ['25', 12321, 15067, 3417, 5432],
+                                ['26', 10342, 10119, 5231, 13701],
+                                ['27', 22998, 12043, 4572, 4008],
+                                ['28', 11261, 10419, 6134, 18712],
+                                ['29', 12814, 3054, 4376, 4229],
+                                ['30', 13012, 5067, 3987, 3932],
+                                ['31', 11624, 7004, 3574, 5221],
+                                ['32', 8814, 9054, 4376, 9256],
+                                ['33', 12998, 12043, 4572, 3308],
+                                ['34', 12321, 15067, 3417, 5432],
+                                ['35', 10342, 10119, 5231, 13701],
+                                ['36', 22998, 12043, 4572, 4008],
+                                ['37', 11261, 10419, 6134, 18712],
+                                ['38', 11261, 10419, 6134, 18712],
+                                ['39', 11261, 10419, 6134, 18712],
+                                ['40', 11261, 10419, 6134, 18712],
+                                ['41', 11261, 10419, 6134, 18712],
+                                ['42', 11261, 10419, 6134, 18712],
+                                ['43', 11261, 10419, 6134, 18712],
+                                ['44', 11261, 10419, 6134, 18712],
+                                ['45', 11261, 10419, 6134, 18712],
+                                ['46', 11261, 10419, 6134, 18712],
+                                ['47', 11261, 10419, 6134, 18712],
+                                ['48', 11261, 10419, 6134, 18712],
+                                ['49', 11261, 10419, 6134, 18712],
+                                ['50', 11261, 10419, 6134, 18712],
+                                ['51', 11261, 10419, 6134, 18712],
+                                ['52', 11261, 10419, 6134, 18712],
+                                ['53', 11261, 10419, 6134, 18712],
+                                ['54', 11261, 10419, 6134, 18712],
+                                ['55', 11261, 10419, 6134, 18712],
+                                ['56', 11261, 10419, 6134, 18712],
+                                ['57', 11261, 10419, 6134, 18712],
+                                ['58', 11261, 10419, 6134, 18712],
+                                ['59', 11261, 10419, 6134, 18712],
+                                ['60', 11261, 10419, 6134, 18712],
+                                ['61', 11261, 10419, 6134, 18712],
+                                ['62', 11261, 10419, 6134, 18712],
+                                ['63', 11261, 10419, 6134, 18712],
+                                ['64', 11261, 10419, 6134, 18712],
+                                ['65', 11261, 10419, 6134, 18712],
+                                ['66', 11261, 10419, 6134, 18712],
+                                ['67', 11261, 10419, 6134, 18712],
+                                ['68', 11261, 10419, 6134, 18712],
+                                ['69', 11261, 10419, 6134, 18712],
+                                ['70', 11261, 10419, 6134, 18712],
+                                ['71', 11261, 10419, 6134, 18712],
+                                ['72', 11261, 10419, 6134, 18712],
+                                ['73', 11261, 10419, 6134, 18712],
+                                ['74', 11261, 10419, 6134, 18712],
+                                ['75', 11261, 10419, 6134, 18712],
+                                ['76', 11261, 10419, 6134, 18712],
+                                ['77', 11261, 10419, 6134, 18712],
+                                ['78', 11261, 10419, 6134, 18712],
+                                ['79', 11261, 10419, 6134, 18712],
+                                ['81', 11261, 10419, 6134, 18712],
+                                ['82', 11261, 10419, 6134, 18712],
+                                ['83', 11261, 10419, 6134, 18712],
+                                ['84', 11261, 10419, 6134, 18712],
+                                ['85', 11261, 10419, 6134, 18712],
+                                ['86', 11261, 10419, 6134, 18712],
+                                ['87', 11261, 10419, 6134, 18712],
+                                ['88', 11261, 10419, 6134, 18712],
+                                ['89', 11261, 10419, 6134, 18712],
+                                ['90', 11261, 10419, 6134, 18712],
+                                ['91', 11261, 10419, 6134, 18712],
+                                ['92', 11261, 10419, 6134, 18712],
+                                ['93', 11261, 10419, 6134, 18712],
+                                ['94', 11261, 10419, 6134, 18712],
+                                ['95', 11261, 10419, 6134, 18712],
+                                ['96', 11261, 10419, 6134, 18712],
+                                ['97', 11261, 10419, 6134, 18712],
+                                ['98', 11261, 10419, 6134, 18712],
+                                ['99', 11261, 10419, 6134, 18712],
+                                ['100', 11261, 10419, 6134, 18712]
+
+
+                            ]);
+
+                            // map data for the first series, take x from the zero column and value from the first column of data set
+                            var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
+
+                            // map data for the second series, take x from the zero column and value from the second column of data set
+                            var secondSeriesData = dataSet.mapAs({ x: 0, value: 2 });
+
+                            // map data for the second series, take x from the zero column and value from the third column of data set
+                            var thirdSeriesData = dataSet.mapAs({ x: 0, value: 3 });
+
+                            // map data for the fourth series, take x from the zero column and value from the fourth column of data set
+                            var fourthSeriesData = dataSet.mapAs({ x: 0, value: 4 });
+
+                            // create bar chart
+                            var chart = anychart.column();
+
+                            // turn on chart animation
+                            chart.animation(true);
+
+                            // force chart to stack values by Y scale.
+                            chart.yScale().stackMode('percent');
+
+
+
+                            // set yAxis labels formatting, force it to add % to values
+                            chart.yAxis(0).labels().format('{%Value}%');
+
+                            // helper function to setup label settings for all series
+                            var setupSeries = function (series, name) {
+                                series.name(name).stroke('2 #fff  1');
+
+
+                                series.hovered().stroke('2 #6FCEFB 1');
+                            };
+
+                            // temp variable to store series instance
+                            var series;
+
+                            // create first series with mapped data
+                            series = chart.column(firstSeriesData);
+                            setupSeries(series, 'Productive 64%');
+
+                            // create second series with mapped data
+                            series = chart.column(secondSeriesData);
+                            setupSeries(series, 'Unproductive 20%');
+
+                            // create third series with mapped data
+                            series = chart.column(thirdSeriesData);
+                            setupSeries(series, 'Neutral 16%');
+
+                            // create fourth series with mapped data
+                            //   series = chart.column(fourthSeriesData);
+                            //   setupSeries(series, 'Nevada');
+
+                            chart.interactivity().hoverMode('by-x');
+                            chart.tooltip().titleFormat('{%X}').displayMode('union');
+
+                            // turn on legend
+                            // chart.legend().enabled(false).fontSize(13);
+                            // chart.legend().enabled(true).itemsLayout("right")
+                            chart.legend().enabled(true).position("bottom")
+
+                            // set container id for the chart
+                            chart.container('container');
+
+                            // initiate chart drawing
+                            chart.draw();
+                        });
+
+                    </script>
+
+
+
+
+                    <!--  -->
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; position: relative; border: none;">
+                                <div class="card-body mb-n4 mt-n2">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr1.1.png" alt="">
+                                                <p class="text-muted">Arrival Time</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3> 09:30 <span class="text-muted"><small>hr</small></span>
+                                                        </h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; position: relative; border: none;">
+                                <div class="card-body mb-n3 mt-n1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr1.2.png" alt="">
+                                                <p class="text-muted">Left Time</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3> 07:00 <span class="text-muted"><small>hr</small></span>
+                                                        </h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body mb-n3 mt-n1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr1.3.png" alt="">
+                                                <p class="text-muted">Productive Time</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3> 07:30 <span class="text-muted"><small>hr</small></span>
+                                                        </h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body mb-n3 mt-n1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr1.4.png" alt="">
+                                                <p class="text-muted">Intime Pros Time</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3> 00:00 <span class="text-muted"><small>hr</small></span>
+                                                        </h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <!--  -->
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body mb-n3 mt-n1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr2.1.png" alt="">
+                                                <p class="text-muted">Time At Work</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3> 09:30 <span class="text-muted"><small>hr</small></span>
+                                                        </h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body mb-n3 mt-n1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr2.2.png" alt="">
+                                                <p class="text-muted">Placed In</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3>3<span class="text-muted"><small> rd</small>&nbsp;<span
+                                                                    style="color: black;">27
+                                                                </span><small>th</small></span></h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body mb-n3 mt-n1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr2.3.png" alt="">
+                                                <p class="text-muted">Effectiveness</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3> 80:00% <span class="text-muted"><small></small></span></h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body mb-n3 mt-n1">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="img-fluid" src="cr2.4.png" alt="">
+                                                <p class="text-muted">Productivity</p>
+                                            </div>
+                                            <div class="col ml-lg-5">
+                                                <p><b>
+                                                        <h3> 80:00% <span class="text-muted"><small></small></span></h3>
+                                                    </b></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <!--  -->
+                    <!-- chart -->
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-3">
+
+                            <div class="card h-100" style="width: 100%">
+                                <div class="card-body">
+
+                                    <!--  -->
+                                    <div class="head ml-1">
+                                        <h4><b>Billable / Non-Billable Employees</b></h4>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-md-12 ">
+                                            <div>
+                                                <p>
+                                                    <img src="ptc.png" class="ml-2  img-fluid" alt="..."
+                                                        style="width: 25px; height: 25px;"><span class="mt-lg-5">&nbsp;
+                                                        Billable</span>
+                                                </p>
+
+                                                <p class="text-right  mt-sm-n4"><small style="font-size: medium;"> 38
+                                                        Project
+
+                                                    </small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-12 ">
+                                            <div>
+                                                <p>
+                                                    <img src="ptc2.png" class="ml-2  img-fluid" alt="..."
+                                                        style="width: 25px; height: 25px;"><span
+                                                        class="mt-lg-5">&nbsp;Non-Billable</span>
+                                                </p>
+
+                                                <p class="text-right  mt-sm-n4"><small style="font-size: medium;"> 12
+                                                        Project
+
+                                                    </small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div style="width:50%;height:50%;">
+
+                                            <canvas id="myChart" style="width: 100%; position: relative;">
+                                            </canvas>
+                                        </div>
+
+                                        <script>
+                                            var xValues = ["", ""];
+                                            var yValues = [40, 70];
+                                            var barColors = [
+                                                "#5FE3A1",
+                                                "#A4A1FB"
+
+                                            ];
+
+                                            new Chart("myChart", {
+                                                type: "pie",
+                                                data: {
+
+                                                    datasets: [{
+                                                        backgroundColor: barColors,
+                                                        data: yValues
+                                                    }]
+                                                },
+                                                options: {
+                                                    title: {
+                                                        display: true,
+
+                                                    }
+                                                }
+                                            });
+
+
+                                        </script>
+
+                                        <div class="col-md-12">
+                                            <div>
+                                                <p class="text-center mt-n4 "><span class="ml-n2">Info</span> <br>
+                                                    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                                                        src="ptc.png" class="  img-fluid" alt="..."
+                                                        style="width: 25px; height: 25px;"><span class="">&nbsp;
+                                                        Billable </span> <span class=" float-right"> 38 </span></p>
+                                            </div>
+                                            <div>
+                                                <p class="text-center mt-n3">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                                                        src="ptc2.png" class="  img-fluid ml-4" alt="..."
+                                                        style="width: 25px; height: 25px;"><span class="">&nbsp;
+                                                        Non-Billable </span> <span class=" float-right"> 12</span></p>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div>
+                                            <p>
+                                                <img src="ptc.png" class="  img-fluid" alt="..."
+                                                    style="width: 25px; height: 25px;"><span class="">&nbsp;
+                                                    Billable</span>
+                                            </p>
+
+                                            <p class=""><small style="font-size: medium;"> 38
+                                                    Project
+
+                                                </small></p>
+                                        </div> -->
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <!-- ============chart=========== -->
+
+
+                        <div class="col-md-3">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <h4 class="card-header" style="background-color: white;"><b>New Arrivals </b></h4>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <img src="es.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>Edward Smith</b><br>
+                                                <small class="text-muted">Sr.UI/UX Designer/Deigner <br>91-784675876
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <img src="jdd.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>John Deo</b><br>
+                                                <small class="text-muted">Project Manager<span class="text-white">nh/Dsigner</span><br>91-784675876 </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <img src="at.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>Alex Turner</b><br>
+                                                <small class="text-muted">Program Manager<span class="text-white">oehsigner</span><br>91-784675876 </small>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <h4 class="card-header" style="background-color: white;"><b>Birthdays </b></h4>
+                                <div class="card-body">
+                                    <!-- <div class="row mt-n3" style="background-color: #D1F4F2;">
+                                        <div class="col-1">
+                                            <div class=" ml-2 mt-2 position-absolute"
+                                                style="height: 64px; width: 6%; background-color: #48C3FC; border-radius: 3px;">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-9">
+                                            <p class="mcr1 ml-lg-5  mt-3 ">
+                                            <h4 class="ml-lg-4 " style="color: #6FCEFB;"><b>October<br>Birthdays </b>
+                                            </h4>
+                                            </p>
+
+                                        </div>
+                                        <div class="col-2">
+                                            <img class="mt-3 ml-n3 img-fluid" src="kek.png" alt="">
+                                        </div>
+                                    </div> -->
+
+                                    <div class="row mt-n3">
+                                        <img class="w-100" src="rr2.png" alt="">
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <img src="es.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>Edward Smith</b><br>
+                                                <small class="text-muted">Sr.UI/UX Designer/Designer <br>91-784675876
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <img src="at.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>Emly Johnson</b><br>
+                                                <small class="text-muted">Program Manager<span class="text-white">nhiisigner</span><br>91-784675876 </small>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <h4 class="card-header" style="background-color: white;"><b>Department Members </b></h4>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <img src="es.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>Edward Smith</b><br>
+                                                <small class="text-muted">Sr.UI/UX Designer/Designer <br>91-784675876
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <img src="jdd.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>John Deo</b><br>
+                                                <small class="text-muted">Project Manager<span class="text-white">nhiisiaagner</span><br>91-784675876 </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <img src="at.png" class="ml-2 img-fluid" alt="..."
+                                            style="width: 60px; height: 63px;">
+                                        <div>
+                                            <p class="mcr1 ml-lg-3  ">
+                                                <b>Alex Turner</b><br>
+                                                <small class="text-muted">Program Manager<span class="text-white">nhiisigner</span><br>91-784675876 </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--  -->
+
+                    <div class="row mt-3">
+                        <div class="col-md-8">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body">
+                                    <div class="head ml-1">
+                                        <h4><b>My Timesheet</b></h4>
+                                    </div>
+
+                                    <div class="table-responsive mt-3 table-borderless ">
+                                        <table class="table">
+                                            <tr style=" background-color: #F5F6F7; padding-bottom: 20px;">
+                                                <th style=" padding-bottom: 20px;">Timesheet Name</th>
+                                                <th>Project Name</th>
+                                                <th>Submitted Hours</th>
+                                                <th>Approved Hours</th>
+                                                <th>Status</th>
+                                            </tr>
+                                            <div>
+                                                <tr style=" padding-bottom: 35px;">
+
+                                                    <td class="text-muted " style=" padding-bottom: 35px;">Timesheet(11
+                                                        Nov,2020)</td>
+
+                                                    <td>IN TIME</td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #ede7fa; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #D1F4F2; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-3"
+                                                            style="background-color: white; border-radius: 16px; border: 1px solid #1BC5BD;">
+                                                            <span class="dot"
+                                                                style="height: 7px; width: 7px; background-color: #1BC5BD; border-radius: 50%; display: inline-block;"></span>
+                                                            Approved</button></td>
+
+                                                </tr>
+                                            </div>
+
+                                            <div id="row1">
+                                                <tr style=" padding-bottom: 35px;">
+
+                                                    <td class="text-muted" style=" padding-bottom: 35px;">Timesheet(11
+                                                        Nov,2020)</td>
+
+                                                    <td>IN TIME</td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #ede7fa; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #D1F4F2; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-3"
+                                                            style="background-color: white; border-radius: 16px; border: 1px solid #FFA800;">
+                                                            <span class="dot"
+                                                                style="height: 7px; width: 7px; background-color: #FFA800; border-radius: 50%; display: inline-block;"></span>
+                                                            Pending &nbsp;</button></td>
+
+                                                </tr>
+                                            </div>
+
+                                            <div id="row1">
+                                                <tr style=" padding-bottom: 35px;">
+
+                                                    <td class="text-muted" style=" padding-bottom: 35px;">Timesheet(11
+                                                        Nov,2020)</td>
+
+                                                    <td>IN TIME</td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #ede7fa; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #D1F4F2; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-3"
+                                                            style="background-color: white; border-radius: 16px; border: 1px solid #1BC5BD;">
+                                                            <span class="dot"
+                                                                style="height: 7px; width: 7px; background-color: #1BC5BD; border-radius: 50%; display: inline-block;"></span>
+                                                            Approved</button></td>
+
+                                                </tr>
+                                            </div>
+
+                                            <div id="row1">
+                                                <tr style=" padding-bottom: 35px;">
+
+                                                    <td class="text-muted" style=" padding-bottom: 35px;">Timesheet(11
+                                                        Nov,2020)</td>
+
+                                                    <td>IN TIME</td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #ede7fa; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-4"
+                                                            style="background-color: #D1F4F2; border-radius: 16px;">08:00
+                                                            hrs</button></td>
+
+                                                    <td><button type="button" class="btn btn-sm px-3"
+                                                            style="background-color: white; border-radius: 16px; border: 1px solid #1BC5BD;">
+                                                            <span class="dot"
+                                                                style="height: 7px; width: 7px; background-color: #1BC5BD; border-radius: 50%; display: inline-block;"></span>
+                                                            Approved</button></td>
+
+                                                </tr>
+                                            </div>
+
+
+                                        </table>
+                                        <div class="row1">
+                                            <p>
+                                            <h5 class=" mt-n3 mb-3 ml-2 mb-2" style="color: #0095DA;"><b> View All (6)
+                                                </b></h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--====================== chart2========================== -->
+                        <!-- ======================================================= -->
+
+                        <div class="col-md-4">
+
+                            <div class="card h-100" style="width: 100%;">
+                                <h4 class="card-header" style="background-color: white;"><b>Leavs Report </b></h4>
+                                <div class="card-body">
+
+
+
+
+
+                                    <div class="card" style="width: 100%; border: none;">
+                                        <div class="card-body">
+                                            <div style="width:50%; height:50%; margin-left: 25%;">
+                                                <canvas id="myChart2"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card m-0 p-0" style="width: 100%; border: none;">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button type="button" class="btn btn-lg px-3"
+                                                        style="background-color: white; ">
+                                                        <span class="dot"
+                                                            style="height: 14px; width: 14px; background-color: #F64E60; border-radius: 50%; display: inline-block;"></span>
+                                                        Paid Leaves
+                                                    </button><br>
+                                                    <span class="text-muted ml-5"> Available 1 Day(s)</span>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <button class="btn btn-lg px-3 " style="background-color: white; ">
+                                                        <span class="dot"
+                                                            style="height: 14px; width: 14px; background-color: #FCC9CE; border-radius: 50%; display: inline-block;"></span>
+                                                        Unpaid Leaves
+                                                    </button><br>
+                                                    <span class="text-muted ml-5">Available 2.5 Day(s)</span>
+                                                </div>
+
+
+                                                <!-- <p>
+                                                    <button type="button" class="btn btn-lg px-3"
+                                                        style="background-color: white; ">
+                                                        <span class="dot"
+                                                            style="height: 14px; width: 14px; background-color: #F64E60; border-radius: 50%; display: inline-block;"></span>
+                                                        Paid Leaves <br> <span> Available 1 Day(s)</span>
+                                                    </button>
+
+                                                    <button class="btn btn-lg px-3 " style="background-color: white; ">
+                                                        <span class="dot"
+                                                            style="height: 14px; width: 14px; background-color: #FCC9CE; border-radius: 50%; display: inline-block;"></span>
+                                                        Unpaid Leaves <br> <span>Available 1 Day(s)</span>
+                                                    </button>
+                                                </p> -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <script>
+                                        const labels = [
+                                            'January',
+                                            'February',
+
+
+                                        ];
+                                        const data = {
+                                            labels: labels,
+                                            datasets: [{
+                                                label: 'My First dataset',
+
+                                                data: [20, 30],
+                                                backgroundColor: [
+                                                    '#F64E60',
+                                                    '#FCC9CE'
+                                                ],
+                                                cutout: '80%',
+
+                                            }],
+
+                                        };
+
+                                        const config = {
+                                            type: 'doughnut',
+                                            data: data,
+                                            options: {
+
+                                                plugins: {
+
+                                                    legend: {
+                                                        display: false,
+
+
+                                                    }
+                                                },
+
+
+                                            }
+                                        };
+
+
+                                        const myChart = new Chart(
+                                            document.getElementById('myChart2'),
+                                            config
+                                        );
+                                    </script>
+
+
+
+
+
+
+
+
+
+
+                                    <!-- <div id="chartContainer" style="height: 300px; width: 100%;">
+                                    </div>
+
+
+                                    <script type="text/javascript">
+                                        window.onload = function () {
+                                            var chart = new CanvasJS.Chart("chartContainer",
+                                                {
+                                                    title: {
+                                                        text: ""
+                                                    },
+                                                    data: [
+                                                        {
+                                                            type: "doughnut",
+                                                            dataPoints: [
+                                                                { y: 40, indexLabel: "" },
+                                                                { y: 60, indexLabel: "" },
+
+                                                               
+                                                            ]
+                                                        }
+                                                    ]
+                                                });
+
+                                            chart.render();
+                                        }
+                                    </script> -->
+                                    <!--  -->
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!--  -->
+
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body">
+                                    <h4 class="card-title"><b> Projects </b></h4>
+
+                                    <div class="row" style="background-color: #F5F6F7;">
+                                        <h6 class="card-subtitle mt-3 ml-3 mb-3"><b>projects Name</b></h6>
+                                    </div>
+                                    <div class="row">
+                                        <p>
+                                        <h3 class=" mt-4 ml-2 mb-4" style="color: #FF980E;"><b> ATP </b></h3><span
+                                            class="ml-3 mt-3 mb-3"><b>ATP Jobs </b>
+                                            <h5>Lorem ipsum dolor sit amet,consectetuer adipiscing</h5>
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <p>
+                                        <h3 class=" mt-4 ml-4 mb-4" style="color: #1F2BCC;"><b> M </b></h3><span
+                                            class="ml-4 mt-3 mb-3"><b>Mazars </b>
+                                            <h5>Lorem ipsum dolor sit amet,consectetuer adipiscing</h5>
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <p>
+                                        <h3 class=" mt-4 ml-3 mb-4" style="color: #4BD16E;"><b> GL </b></h3><span
+                                            class="ml-3 mt-3 mb-3"><b>Green Light </b>
+                                            <h5>Lorem ipsum dolor sit amet,consectetuer adipiscing</h5>
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <p>
+                                        <h3 class=" mt-4 ml-3 mb-4" style="color: #51DCEC;"><b> D </b></h3><span
+                                            class="ml-4 mt-3 mb-3"><b>Dekra </b>
+                                            <h5>Lorem ipsum dolor sit amet,consectetuer adipiscing</h5>
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <p>
+                                        <h5 class=" mt-1 ml-4 mb-2" style="color: #0095DA;"><b> View All (6) </b></h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body">
+                                    <div class="head ml-1">
+                                        <h4><b>Tasks</b></h4>
+                                    </div>
+
+                                    <div class="table-responsive mt-3 table-borderless ">
+                                        <table class="table">
+                                            <tr style=" background-color: #F5F6F7; padding-bottom: 25px;">
+                                                <th style=" padding-bottom: 25px;">Name</th>
+                                                <th class="pl-5">Start Date</th>
+                                                <th class="pl-5">End Date</th>
+                                                <th class="pl-5">Status</th>
+                                            </tr>
+                                            <div>
+                                                <tr style=" padding-bottom: 41px;">
+
+                                                    <!-- <td class="pt-4">
+                                                        <div class="row">
+                                                          <div class="col-md-6 text-muted" style="font-size :12px">
+                                                            New project Loader
+                                                          </div>
+                                                          <div class="col-md-6 d-flex justify-content-end text-muted">
+                                                            70%
+                                                          </div>
+                                                          <div class="col-md-12">
+                                                            <div class="progress">
+                                                              <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70%"
+                                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                              
+                                                          </div>
+                                                        </div>
+                                                      </td> -->
+
+                                                    <td class="" style=" padding-bottom: 41px;">
+                                                        <div class="row">
+                                                            <div class="col-md-10 " >
+                                                                New project Loader
+                                                            </div>
+                                                            <div
+                                                                class="col-md-2 d-flex justify-content-end text-muted mpl">
+                                                                70%
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="progress" style="border-radius: 8px;">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                        style="width: 70%" aria-valuenow="70"
+                                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">In Process</td>
+
+
+                                                </tr>
+                                            </div>
+
+                                            <div id="row1">
+                                                <tr style=" padding-bottom: 41px;">
+
+                                                    <!-- <td class="" style=" padding-bottom: 41px;">
+                                                        Client details pages
+
+
+                                                        <div class="row float-right ">
+                                                            65%
+                                                        </div>
+                                                        <div class="progress" style="border-radius: 8px;">
+                                                            <div class="progress-bar" role="progressbar"
+                                                                style="width: 65%" aria-valuenow="65" aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </td> -->
+
+                                                    <td class="" style=" padding-bottom: 41px;">
+                                                        <div class="row">
+                                                            <div class="col-md-10 ">
+                                                                Client details pages
+                                                            </div>
+                                                            <div
+                                                                class="col-md-2 d-flex justify-content-end text-muted mpl">
+                                                                65%
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="progress" style="border-radius: 8px;">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                        style="width: 65%" aria-valuenow="65"
+                                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">Completed</td>
+
+                                                </tr>
+                                            </div>
+
+                                            <div id="row1">
+                                                <tr style=" padding-bottom: 41px;">
+
+                                                    <!-- <td class="" style=" padding-bottom: 41px;">Dashboard
+                                                        <div class="row float-right ">
+                                                            60%
+                                                        </div>
+                                                        <div class="progress" style="border-radius: 8px;">
+                                                            <div class="progress-bar" role="progressbar"
+                                                                style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </td> -->
+
+                                                    <td class="" style=" padding-bottom: 41px;">
+                                                        <div class="row">
+                                                            <div class="col-md-10 ">
+                                                                Dashboard
+                                                            </div>
+                                                            <div
+                                                                class="col-md-2 d-flex justify-content-end text-muted mpl">
+                                                                60%
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="progress" style="border-radius: 8px;">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                        style="width: 60%" aria-valuenow="60"
+                                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">Pending</td>
+
+                                                </tr>
+                                            </div>
+
+                                            <div id="row1">
+                                                <tr style=" padding-bottom: 42px;">
+
+                                                    <!-- <td class="" style=" padding-bottom: 42px;">Help section screen
+                                                        <div class="row float-right ">
+                                                            25%
+                                                        </div>
+                                                        <div class="progress" style="border-radius: 8px;">
+                                                            <div class="progress-bar" role="progressbar"
+                                                                style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </td> -->
+
+                                                    <td class="" style=" padding-bottom: 41px;">
+                                                        <div class="row">
+                                                            <div class="col-md-10 " >
+                                                                section screen
+                                                            </div>
+                                                            <div
+                                                                class="col-md-2 d-flex justify-content-end text-muted mpl">
+                                                                25%
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="progress" style="border-radius: 8px;">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                        style="width: 25%" aria-valuenow="25"
+                                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">12 Nov,2020</td>
+
+                                                    <td class="pl-5">In Process</td>
+
+                                                </tr>
+
+                                            </div>
+
+                                        </table>
+                                        <div class="row1">
+                                            <p>
+                                            <h5 class=" mt-n3 mb-3 ml-2 mb-2" style="color: #0095DA;"><b> View All (6)
+                                                </b></h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- most productive Apps -->
+
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body">
+
+                                    <!-- <div class="row mt-3 ml-0 mr-0 mb-5">
+                                        
+                                        <div class="col-sm bg-light">
+                                            <small> <b>Most Productive Apps</b></small>
+                                            <div class="row h-80  mr-0 mt-1">
+                                                <div class="col-2 mt-2">
+                                                    <img src="fc1.png" height="30">
+                                                </div>
+                                                <div class="col mt-2"
+                                                    style="border-right: 4px solid blue;border-radius: 5px;">
+                                                    <small style="color:#707070;font-weight: 700;"> Teams</small>
+                                                    <div class="float-right">
+                                                        <small style="font-weight: 600;color:#707070;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="row h-80  mr-0 mt-2">
+                                                <div class="col-2 mt-2">
+                                                    <img src="adobexd.png" height="30">
+                                                </div>
+                                                <div class="col mt-2"
+                                                    style="border-right: 4px solid rgb(214, 27, 205);border-radius: 5px;">
+                                                    <small style="color:#707070;font-weight: 700;"> Adobe xd</small>
+                                                    <div class="float-right">
+                                                        <small style="font-weight: 600;color:#707070;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborderxd">
+
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="row h-80  mr-0 mt-2">
+                                                <div class="col-2 mt-2">
+                                                    <img src="outlook.png" height="30">
+                                                </div>
+                                                <div class="col mt-2"
+                                                    style="border-right: 4px solid rgb(57, 142, 199);border-radius: 5px;">
+                                                    <small style="color:#707070;font-weight: 700;"> Outlook</small>
+                                                    <div class="float-right">
+                                                        <small style="font-weight: 600;color:#707070;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborderoutlook">
+
+                                                </div>
+
+
+
+                                            </div>
+
+
+                                            <div class="row h-80  mr-0 mt-1">
+                                                <div class="col-2 mt-2">
+                                                    <img src="zoho.png" height="30">
+                                                </div>
+                                                <div class="col mt-2"
+                                                    style="border-right: 4px solid red;border-radius: 5px;">
+                                                    <small style="color:#707070;font-weight: 700;"> Zoho</small>
+                                                    <div class="float-right">
+                                                        <small style="font-weight: 600;color:#707070;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborderzoho">
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="text-info ml-2">
+                                                    <b> View all(123)</b>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div> -->
+
+
+
+
+
+
+
+
+
+
+                                    <h4 class="card-title"><b> Most Productive Apps </b></h4>
+
+                                    <div class="row mt-3 ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #555AAC;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm col-md  bg-light">
+
+                                            <div class="row h-80 mr-0 mt-3">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="fc1.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class="tim"
+                                                        style="color:#707070;font-weight: 800; font-size: medium; ">
+                                                        Teams</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #FA5EF1;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-3">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="fc2.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class="tim"
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">Adobe
+                                                        Xd</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #1D6FB5;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-3">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="fc3.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class="tim"
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">
+                                                        Outlook</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #FF0000;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-3">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="fc4.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class="tim"
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">
+                                                        Zoho</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row1">
+                                        <p>
+                                        <h5 class=" mt-4 mb-3 ml-2 mb-2" style="color: #0095DA;"><b> View All (123)
+                                            </b></h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Unproductive Apps -->
+
+                        <div class="col-md-4">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body">
+                                    <h4 class="card-title"><b>Unproductive Apps </b></h4>
+
+                                    <div class="row mt-3 ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #ED1F24;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-1">
+                                                <div class="col-2 mt-2 ml-n2">
+                                                    <img class="img-responsive" src="sc1.jpg" alt="" width="60"
+                                                        height="50">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class="tim"
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">&nbsp;
+                                                        Youtube</small><br>
+                                                    <small class="text-muted ml-3 tim">36m 6s</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #F77900;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-1">
+                                                <div class="col-2 mt-2 ml-n2 mr-3">
+                                                    <img class="img-responsive" src="sc2.jpg" alt="" width="60"
+                                                        height="50">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class="tim"
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">Instagrm</small><br>
+                                                    <small class="text-muted tim">10m 5s</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 "
+                                        style="border-right: 7px solid #334557;border-radius: 7px; background-color: #ece7e7; margin-bottom: 29%;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-1">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="sc3.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class="tim"
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">
+                                                        Hubspot</small><br>
+                                                    <small class="text-muted tim">6m 24s</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Neutral Apps -->
+                        <div class="col-md-4">
+
+                            <div class="card h-100" style="width: 100%; border: none;">
+                                <div class="card-body">
+                                    <h4 class="card-title"><b>Neutral Apps</b></h4>
+
+                                    <div class="row mt-3 ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #FF7D8B;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-1">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="lc1.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small style="color:#707070;font-weight: 800; font-size: medium; ">
+                                                        practicemock.com</small><br>
+                                                    <small class="text-muted">1h 82m 52s</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #FF7D8B;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-1">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="lc1.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small class=""
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">pdfmake.org<span class="text-white" style="color: #ece7e7;">fgffhh</span></small><br>
+                                                    <small class="text-muted">50m 5s</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #FF7D8B;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-1">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="lc1.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">azurewebsite.in</small><br>
+                                                    <small class="text-muted">36m 5s</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row  ml-0 mr-0 mb-2"
+                                        style="border-right: 7px solid #FF7D8B;border-radius: 7px; background-color: #ece7e7;">
+                                        <div class="col-sm bg-light">
+
+                                            <div class="row h-80 mr-0 mt-1">
+                                                <div class="col-2 mt-2">
+                                                    <img class="img-responsive" src="lc1.png" alt="">
+
+                                                </div>
+                                                <div class="col mt-3">
+                                                    <small
+                                                        style="color:#707070;font-weight: 800; font-size: medium;">prograsivdemo.net
+                                                    </small><br>
+                                                    <small class="text-muted">24m45s</small>
+                                                    <div class="float-right">
+                                                        <small
+                                                            style="font-weight: 700;color:#707070; font-size: medium;">00:30h</small>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="rightborder">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row1">
+                                        <p>
+                                        <h5 class=" mt-4 mb-3 ml-2 mb-2" style="color: #0095DA;"><b> View All (176)
+                                            </b></h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <div class="row">
+
+
+                        <div class="col-md-12">
+                            <div class="card mt-3" style="width: 100%; border: none; background-color: #f0efef;">
+                                <div class="card-body">
+                                    <!-- <div class="row "> -->
+
+                                    <div class="card" style="width: 100% ; border: none; background-color: #f0efef;">
+                                        <div class="card-body">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <p class="text-center ">
+
+                                                        <img src="lhs1.png" alt="" class="img-fluid m-3 " style="border-radius: 7%;">
+                                                        <img src="lhs2.png" alt="" class="img-fluid m-3" style="border-radius: 7%;">
+                                                        <img src="lhs3.png" alt="" class="img-fluid m-3" style="border-radius: 7%;">
+
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- <div class="">
+                                            <div class="card h-100 "
+                                                style="width: 70%; border-radius: 11px; border: none;">
+                                                <div class="card-body">
+
+                                                   
+
+                                                    <div class="row mt-n2 mb-n3">
+                                                        <p>
+                                                        <h3 class=" ml-1 " style="color: #0295DA;"><b><img
+                                                                    class="mr-3 mt-2 img-fluid" src="as.png" alt=""></b>
+                                                        </h3><span class="ml-2 " style="color: #0295DA;">
+                                                            <h5>&nbsp; Download on the</h5>
+                                                            <h3><b> App Store </b></h3>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="">
+                                            <div class="card h-100"
+                                                style="width: 70%; border-radius: 11px; border: none;">
+                                                <div class="card-body">
+
+                                                    <div class="row mt-n2 mb-n3">
+                                                        <p>
+                                                        <h3 class=" ml-1 " style="color: #0295DA;"><b><img
+                                                                    class="mr-3 mt-2 img-fluid" src="gp.png" alt=""></b>
+                                                        </h3><span class="ml-2 " style="color: #0295DA;">
+                                                            <h5>&nbsp;Get It on</h5>
+                                                            <h3><b>Google Play </b></h3>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class=" ">
+                                            <div class="card h-100"
+                                                style="width: 70%; border-radius: 11px; border: none;">
+                                                <div class="card-body">
+
+                                                    <div class="row mt-n2 mb-n3">
+                                                        <p>
+                                                        <h3 class=" ml-1 "><b><img class="mr-3 mt-2 img-fluid"
+                                                                    src="w.png" alt=""></b></h3><span class="ml-2 "
+                                                            style="color: #0295DA;">
+                                                            <h5>&nbsp;Get It on</h5>
+                                                            <h3><b>Windows </b></h3>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  -->
+                    <div class="card" style="width: 100%; border: none; background-color: #f0efef; ">
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div>
+                                        <p class="text-center "><b style="font-size: 35px;"> <img
+                                                    class="mt-lg-5 img-fluid" src="itp.png" alt=""></b></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 mb-lg-4">
+                                    <div>
+                                        <p class="text-center mt-lg-2 mb-lg-5"><small class="text-muted "
+                                                style="font-size: medium;">Copyright 2020
+                                                WAI Technolgies All Rights Reserved | Privacy Policy | Terms Of
+                                                Service
+                                            </small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+
+
+                </div>
+
+                <!--  -->
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        // Start
+        _("#calendar").innerHTML = calendar();
+
+        // short queySelector
+        function _(s) {
+            return document.querySelector(s);
+        }
+
+        // show info
+        function showInfo(event) {
+            // link
+            var url = "https://codepen.io/nakome/pen/EWBMzm.css";
+            // get json
+            getjson(url, function (obj) {
+                for (var key in obj) {
+                    // if has envent add class
+                    if (_('[data-id="' + key + '"]')) {
+                        _('[data-id="' + key + '"]').classList.add("event");
+                    }
+                    if (event === key) {
+                        _("#calendar_data").classList.toggle("show_data");
+                        // template info
+                        var data =
+                            '<a href="#" class="hideEvent" ' +
+                            'onclick="return hideEvent();">&times;</a>' +
+                            "<h3>" +
+                            obj[key].type +
+                            "</h3>" +
+                            "<dl>" +
+                            "<dt><dfn>Title:</dfn></dt><dd>" +
+                            obj[key].title +
+                            "</dd>" +
+                            "<dt><dfn>Hour:</dfn></dt><dd>" +
+                            obj[key].time +
+                            "</dd>" +
+                            "<dt><dfn>Venue:</dfn></dt><dd>" +
+                            obj[key].venue +
+                            "</dd>" +
+                            "<dt><dfn>Location:</dfn></dt><dd>" +
+                            obj[key].location +
+                            "</dd>" +
+                            "<dt><dfn>Description:</dfn></dt><dd>" +
+                            obj[key].desc +
+                            "</dd>" +
+                            '<dt><dfn>More Info:</dfn></dt><dd><a href="' +
+                            obj[key].more +
+                            '" title="More info">Here</a></dd>' +
+                            "</dl>";
+
+                        return (_("#calendar_data").innerHTML = data);
+                    }
+                }
+            });
+            return false;
+        }
+        // toggle event show or hide
+        function hideEvent() {
+            _("#calendar_data").classList.toggle("show_data");
+        }
+
+        // simple calendar
+        function calendar() {
+            // show info on init
+            showInfo();
+
+            // vars
+            var day_of_week = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"),
+                month_of_year = new Array(
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ),
+                Calendar = new Date(),
+                year = Calendar.getYear(),
+                month = Calendar.getMonth(),
+                today = Calendar.getDate(),
+                weekday = Calendar.getDay(),
+                html = "";
+
+            // start in 1 and this month
+            Calendar.setDate(1, 5);
+            Calendar.setMonth(31);
+            Calendar.setYear(2020);
+
+            // template calendar
+            html = "<table>";
+            // head
+            html += "<thead>";
+            html +=
+                '<tr class="head_cal"><th colspan="7">' +
+                month_of_year[month] +
+                "</th></tr>";
+            html +=
+                '<tr class="subhead_cal"><th colspan="7">' +
+                Calendar.getFullYear() +
+                "</th></tr>";
+            html += '<tr class="week_cal">';
+            for (index = 0; index < 7; index++) {
+                if (weekday == index) {
+                    html += '<th class="week_event">' + day_of_week[index] + "</th>";
+                } else {
+                    html += "<th>" + day_of_week[index] + "</th>";
+                }
+            }
+            html += "</tr>";
+            html += "</thead>";
+
+            // body
+            html += '<tbody class="days_cal">';
+            html += "</tr>";
+
+            // white zone
+            for (index = 0; index < Calendar.getDay(); index++) {
+                html += '<td class="white_cal"> </td>';
+            }
+
+            for (index = 0; index < 31; index++) {
+                if (Calendar.getDate() > index) {
+                    week_day = Calendar.getDay();
+
+                    if (week_day === 0) {
+                        html += "</tr>";
+                    }
+                    if (week_day !== 7) {
+                        // this day
+                        var day = Calendar.getDate();
+                        var info =
+                            Calendar.getMonth() + 1 + "/" + day + "/" + Calendar.getFullYear();
+
+                        if (today === Calendar.getDate()) {
+                            html +=
+                                '<td><a class="today_cal" href="#" data-id="' +
+                                info +
+                                '" onclick="return showInfo(\'' +
+                                info +
+                                "')\">" +
+                                day +
+                                "</a></td>";
+
+                            showInfo(info);
+                        } else {
+                            html +=
+                                '<td><a href="#" data-id="' +
+                                info +
+                                '" onclick="return showInfo(\'' +
+                                info +
+                                "')\">" +
+                                day +
+                                "</a></td>";
+                        }
+                    }
+
+                    if (week_day == 7) {
+                        html += "</tr>";
+                    }
+                }
+
+                Calendar.setDate(Calendar.getDate() + 1);
+            } // end for loop
+            return html;
+        }
+
+        //   Get Json data
+        function getjson(url, callback) {
+            var self = this,
+                ajax = new XMLHttpRequest();
+            ajax.open("GET", url, true);
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState == 4) {
+                    if (ajax.status == 200) {
+                        var data = JSON.parse(ajax.responseText);
+                        return callback(data);
+                    } else {
+                        console.log(ajax.status);
+                    }
+                }
+            };
+            ajax.send();
+        }
+
+    </script>
+
+
+
+    <!-- 22222222222 -->
+
+
+
+    <script>
+        // Start
+        _("#calendar1").innerHTML = calendar();
+
+        // short queySelector
+        function _(s) {
+            return document.querySelector(s);
+        }
+
+        // show info
+        function showInfo(event) {
+            // link
+            var url = "https://codepen.io/nakome/pen/EWBMzm.css";
+            // get json
+            getjson(url, function (obj) {
+                for (var key in obj) {
+                    // if has envent add class
+                    if (_('[data-id="' + key + '"]')) {
+                        _('[data-id="' + key + '"]').classList.add("event");
+                    }
+                    if (event === key) {
+                        _("#calendar_data1").classList.toggle("show_data");
+                        // template info
+                        var data =
+                            '<a href="#" class="hideEvent" ' +
+                            'onclick="return hideEvent();">&times;</a>' +
+                            "<h3>" +
+                            obj[key].type +
+                            "</h3>" +
+                            "<dl>" +
+                            "<dt><dfn>Title:</dfn></dt><dd>" +
+                            obj[key].title +
+                            "</dd>" +
+                            "<dt><dfn>Hour:</dfn></dt><dd>" +
+                            obj[key].time +
+                            "</dd>" +
+                            "<dt><dfn>Venue:</dfn></dt><dd>" +
+                            obj[key].venue +
+                            "</dd>" +
+                            "<dt><dfn>Location:</dfn></dt><dd>" +
+                            obj[key].location +
+                            "</dd>" +
+                            "<dt><dfn>Description:</dfn></dt><dd>" +
+                            obj[key].desc +
+                            "</dd>" +
+                            '<dt><dfn>More Info:</dfn></dt><dd><a href="' +
+                            obj[key].more +
+                            '" title="More info">Here</a></dd>' +
+                            "</dl>";
+
+                        return (_("#calendar_data1").innerHTML = data);
+                    }
+                }
+            });
+            return false;
+        }
+        // toggle event show or hide
+        function hideEvent() {
+            _("#calendar_data1").classList.toggle("show_data");
+        }
+
+        // simple calendar
+        function calendar() {
+            // show info on init
+            showInfo();
+
+            // vars
+            var day_of_week = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"),
+                month_of_year = new Array(
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ),
+                Calendar = new Date(),
+                year = Calendar.getYear(),
+                month = Calendar.getMonth(),
+                today = Calendar.getDate(),
+                weekday = Calendar.getDay(),
+                html = "";
+
+            // start in 1 and this month
+            Calendar.setDate(1, 7);
+            Calendar.setMonth(31);
+            Calendar.setYear(2020);
+
+            // template calendar
+            html = "<table>";
+            // head
+            html += "<thead>";
+            html +=
+                '<tr class="head_cal"><th colspan="7">' +
+                month_of_year[month] +
+                "</th></tr>";
+            html +=
+                '<tr class="subhead_cal"><th colspan="7">' +
+                Calendar.getFullYear() +
+                "</th></tr>";
+            html += '<tr class="week_cal">';
+            for (index = 0; index < 7; index++) {
+                if (weekday == index) {
+                    html += '<th class="week_event">' + day_of_week[index] + "</th>";
+                } else {
+                    html += "<th>" + day_of_week[index] + "</th>";
+                }
+            }
+            html += "</tr>";
+            html += "</thead>";
+
+            // body
+            html += '<tbody class="days_cal">';
+            html += "</tr>";
+
+            // white zone
+            for (index = 0; index < Calendar.getDay(); index++) {
+                html += '<td class="white_cal"> </td>';
+            }
+
+            for (index = 0; index < 31; index++) {
+                if (Calendar.getDate() > index) {
+                    week_day = Calendar.getDay();
+
+                    if (week_day === 0) {
+                        html += "</tr>";
+                    }
+                    if (week_day !== 7) {
+                        // this day
+                        var day = Calendar.getDate();
+                        var info =
+                            Calendar.getMonth() + 1 + "/" + day + "/" + Calendar.getFullYear();
+
+                        if (today === Calendar.getDate()) {
+                            html +=
+                                '<td><a class="today_cal" href="#" data-id="' +
+                                info +
+                                '" onclick="return showInfo(\'' +
+                                info +
+                                "')\">" +
+                                day +
+                                "</a></td>";
+
+                            showInfo(info);
+                        } else {
+                            html +=
+                                '<td><a href="#" data-id="' +
+                                info +
+                                '" onclick="return showInfo(\'' +
+                                info +
+                                "')\">" +
+                                day +
+                                "</a></td>";
+                        }
+                    }
+
+                    if (week_day == 7) {
+                        html += "</tr>";
+                    }
+                }
+
+                Calendar.setDate(Calendar.getDate() + 1);
+            } // end for loop
+            return html;
+        }
+
+        //   Get Json data
+        function getjson(url, callback) {
+            var self = this,
+                ajax = new XMLHttpRequest();
+            ajax.open("GET", url, true);
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState == 4) {
+                    if (ajax.status == 200) {
+                        var data = JSON.parse(ajax.responseText);
+                        return callback(data);
+                    } else {
+                        console.log(ajax.status);
+                    }
+                }
+            };
+            ajax.send();
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script> -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

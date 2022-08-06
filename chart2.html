@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Google - Consolidated Quarterly Revenue",
+                    fontFamily: "arial black",
+                    fontColor: "#695A42"
+                },
+                axisX: {
+                    interval: 1,
+                    intervalType: "year"
+                },
+                axisY: {
+                    valueFormatString: "$#0bn",
+                    gridColor: "#B6B1A8",
+                    tickColor: "#B6B1A8"
+                },
+                toolTip: {
+                    shared: true,
+                    content: toolTipContent
+                },
+                data: [{
+                    type: "stackedColumn",
+                    showInLegend: true,
+                    color: "#6FCEFB",
+                    name: "Q1",
+                    dataPoints: [
+                        { y: 30.88, x: (1) },
+                        { y: 30.88, x: (2) },
+                        { y: 30.88, x: (3) },
+                        { y: 30.88, x: (4) },
+                        { y: 30.88, x: (5) },
+                        { y: 30.88, x: (6) },
+                        { y: 30.88, x: (7) },
+                        { y: 30.88, x: (8) },
+                        { y: 30.88, x: (9) },
+                        { y: 30.88, x: (10) },
+                        { y: 30.88, x: (11) },
+                        { y: 30.88, x: (12) },
+                        { y: 30.88, x: (13) },
+                        { y: 30.88, x: (14) },
+                        { y: 30.88, x: (15) },
+                        { y: 30.88, x: (16) },
+                        { y: 30.88, x: (17) },
+                        { y: 30.88, x: (18) },
+                        { y: 30.88, x: (19) },
+                        { y: 30.88, x: (20) },
+                        { y: 30.88, x: (21) },
+                        { y: 30.88, x: (22) },
+                        { y: 30.88, x: (23) },
+                        { y: 30.88, x: (24) },
+                        { y: 30.88, x: (25) },
+                        { y: 30.88, x: (26) },
+                        { y: 30.88, x: (27) },
+                        { y: 30.88, x: (28) },
+                        { y: 30.88, x: (29) },
+                        { y: 30.88, x: (30) }
+                    ]
+                },
+
+                {
+                    type: "stackedColumn",
+                    showInLegend: true,
+                    name: "Q3",
+                    color: "#E4E4E4",
+                    dataPoints: [
+                        { y: 34.40, x: (1) },
+                        { y: 9.72, x: (2) },
+                        { y: 13.30, x: (3) },
+                        { y: 14.9, x: (4) },
+                        { y: 18.10, x: (5) },
+                        { y: 18.68, x: (6) },
+                        { y: 30.38, x: (7) },
+                        { y: 24.75, x: (8) },
+                        { y: 8.57, x: (9) },
+                        { y: 10.64, x: (10) },
+                        { y: 13.97, x: (11) },
+                        { y: 15.42, x: (12) },
+                        { y: 17.26, x: (13) },
+                        { y: 30.38, x: (14) },
+                        { y: 10.64, x: (15) },
+                        { y: 13.97, x: (16) },
+                        { y: 15.42, x: (17) },
+                        { y: 17.26, x: (18) },
+                        { y: 30.38, x: (19) },
+                        { y: 10.64, x: (20) },
+                        { y: 13.97, x: (21) },
+                        { y: 15.42, x: (22) },
+                        { y: 17.26, x: (23) },
+                        { y: 30.38, x: (24) },
+                        { y: 15.42, x: (25) },
+                        { y: 17.26, x: (26) },
+                        { y: 30.38, x: (27) },
+                        { y: 15.42, x: (28) },
+                        { y: 17.26, x: (29) },
+                        { y: 30.38, x: (30) }
+                    ]
+                },
+                {
+                    type: "stackedColumn",
+                    showInLegend: true,
+                    name: "Q4",
+                    color: "#F64E60",
+                    dataPoints: [
+                        { y: 34.40, x: (1) },
+                        { y: 10.58, x: (2) },
+                        { y: 14.41, x: (3) },
+                        { y: 16.86, x: (4) },
+                        { y: 10.64, x: (5) },
+                        { y: 21.32, x: (6) },
+                        { y: 30.38, x: (7) },
+                        { y: 24.75, x: (8) },
+                        { y: 8.57, x: (9) },
+                        { y: 10.64, x: (10) },
+                        { y: 13.97, x: (11) },
+                        { y: 15.42, x: (12) },
+                        { y: 17.26, x: (13) },
+                        { y: 30.38, x: (14) },
+                        { y: 10.64, x: (15) },
+                        { y: 13.97, x: (16) },
+                        { y: 15.42, x: (17) },
+                        { y: 17.26, x: (18) },
+                        { y: 30.38, x: (19) },
+                        { y: 10.64, x: (20) },
+                        { y: 13.97, x: (21) },
+                        { y: 15.42, x: (22) },
+                        { y: 17.26, x: (23) },
+                        { y: 30.38, x: (24) },
+                        { y: 15.42, x: (25) },
+                        { y: 17.26, x: (26) },
+                        { y: 30.38, x: (27) },
+                        { y: 15.42, x: (28) },
+                        { y: 17.26, x: (29) },
+                        { y: 30.38, x: (30) }
+                    ]
+                }]
+            });
+            chart.render();
+
+            function toolTipContent(e) {
+                var str = "";
+                var total = 0;
+                var str2, str3;
+                for (var i = 0; i < e.entries.length; i++) {
+                    var str1 = "<span style= \"color:" + e.entries[i].dataSeries.color + "\"> " + e.entries[i].dataSeries.name + "</span>: $<strong>" + e.entries[i].dataPoint.y + "</strong>bn<br/>";
+                    total = e.entries[i].dataPoint.y + total;
+                    str = str.concat(str1);
+                }
+                str2 = "<span style = \"color:DodgerBlue;\"><strong>" + (e.entries[0].dataPoint.x).getFullYear() + "</strong></span><br/>";
+                total = Math.round(total * 100) / 100;
+                str3 = "<span style = \"color:Tomato\">Total:</span><strong> $" + total + "</strong>bn<br/>";
+                return (str2.concat(str)).concat(str3);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>
